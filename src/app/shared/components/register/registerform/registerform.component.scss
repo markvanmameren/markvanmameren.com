@@ -1,0 +1,9 @@
+@import "style-variables";
+
+:host {
+  width: 100%;
+}
+
+.password-eye fa-icon {
+  margin-right: $padding-size-small;
+}

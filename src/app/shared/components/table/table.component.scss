@@ -1,0 +1,28 @@
+@import "style-variables";
+
+:host {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: left;
+
+  .row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $padding-size-medium;
+    padding: 0 $padding-size-medium;
+
+    &:nth-of-type(2n + 1) {
+      background-color: $background-color-medium;
+    }
+
+    span {
+      min-height: $min-table-row-height;
+      line-height: $min-table-row-height;
+
+      &.title {
+        font-weight: $font-weight-bold;
+      }
+    }
+  }
+}

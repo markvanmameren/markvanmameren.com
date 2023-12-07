@@ -1,0 +1,128 @@
+@import "style-variables";
+#splashscreen {
+  min-height: calc(100vh - #{$header-footer-height} - #{$padding-size-medium});
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: $padding-size-medium;
+  gap: $padding-size-medium;
+
+  .image {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center top;
+    overflow: hidden;
+    width: 24vh;
+    height: 24vh;
+    border-radius: $border-radius-rounded;
+    border: $border-width-xl solid $text-color-invert;
+    margin: 0 auto;
+    aspect-ratio: 1 / 1;
+  }
+
+  .intro-card {
+    background-color: $background-color-medium;
+    display: flex;
+    align-items: center;
+    flex-flow: row wrap;
+    gap: $padding-size-medium-responsive;
+    padding: $padding-size-medium-responsive;
+    border-radius: $border-radius-default;
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 100%; /* mobile first */
+
+    .occupation {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      h1,
+      h2 {
+        text-align: center;
+        color: $text-color;
+        text-transform: none;
+        background-color: transparent;
+        margin: 0;
+        padding: 0;
+      }
+
+      h1 {
+        font-size: 1.4rem;
+        padding-bottom: $padding-size-medium;
+      }
+
+      h2 {
+        font-size: 0.9rem;
+      }
+    }
+
+    .logos {
+      display: flex;
+      align-items: center;
+      justify-content: center; /* mobile first */
+      padding: $padding-size-medium 0;
+      gap: $padding-size-small;
+
+      a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: $border-width-small solid $accent-color;
+        border-radius: $border-radius-small;
+        transition: all $transition-duration linear;
+        height: $icon-holder-size;
+        width: $icon-holder-size;
+
+        &:hover {
+          color: $background-color-dark;
+          border-color: $background-color-dark;
+        }
+
+        fa-icon {
+          padding: $padding-size-small;
+        }
+      }
+    }
+  }
+
+  .continue-reading {
+    padding: $padding-size-medium;
+
+    &:hover {
+      color: $background-color-dark;
+    }
+  }
+}
+
+#introduction {
+  scroll-margin-top: calc(#{$header-footer-height} + #{$padding-size-medium});
+}
+
+/* Desktop */
+@media (min-width: $mobile-breakpoint) {
+  #splashscreen {
+    .intro-card {
+      .info {
+        width: auto;
+
+        .logos {
+          justify-content: flex-start;
+        }
+
+        .occupation {
+          h1,
+          h2 {
+            text-align: left;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+<pf-container *ngIf="user$ | async as user; else loader">
+  <pf-cell>
+    <pf-table
+      [rows]="[
+        { title: 'First name', value: user.firstName },
+        { title: 'Last name', value: user.lastName },
+        { title: 'Email', value: user.email }
+      ]"
+    ></pf-table>
+  </pf-cell>
+  <pf-cell
+    *ngIf="user.avatar"
+    [image]="{ src: user.avatar, alt: 'Profile picture' }"
+  >
+  </pf-cell>
+</pf-container>
+<ng-template #loader>
+  <pf-loader [isLarge]="true"></pf-loader>
+</ng-template>

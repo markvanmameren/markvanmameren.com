@@ -1,0 +1,57 @@
+<nav
+  class="menu"
+  role="navigation"
+  aria-label="Main menu"
+  *ngIf="!(isMobile$ | async) || menuIsOpen"
+>
+  <ul class="level-1" (click)="hideMenu()">
+    <ng-container *ngFor="let menuItem of menuContent">
+      <li
+        *ngIf="
+          !menuItem.adminsOnly ||
+          (menuItem.adminsOnly && (loggedInAdmin$ | async))
+        "
+      >
+        <a
+          [routerLink]="menuItem.path"
+          [attr.aria-label]="menuItem.title"
+          [routerLinkActive]="'activeLink'"
+        >
+          <fa-icon
+            *ngIf="menuItem.icon"
+            [icon]="menuItem.icon"
+            size="xs"
+            class="icon-left"
+          ></fa-icon>
+          {{ menuItem.title }}
+          <fa-icon
+            *ngIf="menuItem.children?.length"
+            [icon]="faChevronDown"
+            size="xs"
+            class="icon-right"
+          ></fa-icon>
+        </a>
+        <ul *ngIf="menuItem.children?.length" class="level-2">
+          <li *ngFor="let childItem of menuItem.children">
+            <a
+              [routerLink]="childItem.path"
+              [attr.aria-label]="childItem.title"
+              [routerLinkActive]="'activeLink'"
+            >
+              {{ childItem.title }}
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ng-container>
+  </ul>
+</nav>
+<button
+  *ngIf="isMobile$ | async"
+  class="hamburger"
+  aria-label="Toggle main menu"
+  (click)="toggleMenu()"
+>
+  <fa-icon *ngIf="!menuIsOpen" [icon]="faBars" [size]="'xl'"></fa-icon>
+  <fa-icon *ngIf="menuIsOpen" [icon]="faXmark" [size]="'xl'"></fa-icon>
+</button>

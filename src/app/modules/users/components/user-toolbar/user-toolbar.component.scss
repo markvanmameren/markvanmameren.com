@@ -1,0 +1,16 @@
+@import "style-variables";
+
+nav {
+  padding: $padding-size-medium 0;
+  display: flex;
+  flex-direction: column; /* mobile first */
+  flex-wrap: wrap;
+  gap: $padding-size-medium;
+}
+
+/* Desktop */
+@media (min-width: $small-breakpoint) {
+  nav {
+    flex-direction: row;
+  }
+}

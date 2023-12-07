@@ -1,0 +1,66 @@
+// Breakpoints
+$mobile-breakpoint: 1080px;
+$small-breakpoint: 400px;
+
+// Fonts
+$font-fallback: "Helvetica Neue", sans-serif;
+$font-family-title: "Raleway", $font-fallback;
+$font-family-body: "Source Sans Pro", $font-fallback;
+$font-rem-base-value: 18px;
+$font-size-body: 1rem;
+$font-size-h1: 1.8rem;
+$font-size-h2: 1.4rem;
+$font-size-h3: 1.1rem;
+$font-size-small: 0.8rem;
+$font-weight-body: 300;
+$font-weight-title: 400;
+$font-weight-bold: 600;
+
+// Colors
+$background-color-light: #f4f4f4;
+$background-color-medium: #e9e9e9;
+$background-color-dark: #333;
+$background-color-modal: rgba(0, 0, 0, 0.7);
+$text-color: rgb(14, 14, 14);
+$text-color-light: #8c8c8c;
+$text-color-invert: white;
+$shadow-color: rgba(14, 14, 14, 0.5);
+$accent-color: #6da46c;
+$error-color: rgb(218, 52, 52);
+
+// Size
+$header-footer-height: 80px;
+$header-button-width: 140px;
+$max-page-width: 1150px;
+$min-card-width: 240px;
+$min-card-height: 135px;
+$min-table-row-height: 60px;
+$calculator-button-height: 90px;
+$max-image-size: 280px;
+$avatar-size: 80px;
+$loader-size: 40px;
+$icon-holder-size: 46px;
+$resume-row-icon-size: 60px;
+
+// Padding
+$padding-size-small: 10px;
+$padding-size-medium: 20px;
+$padding-size-large: 60px;
+$padding-size-small-responsive: 2vw;
+$padding-size-medium-responsive: 4vw;
+$padding-size-large-responsive: 8vw;
+
+// Transitions
+$transition-duration: 0.3s;
+
+// Lines & Borders
+$border-width-small: 1px;
+$border-width-default: 2px;
+$border-width-thick: 4px;
+$border-width-xl: 10px;
+$border-radius-small: 10px;
+$border-radius-default: 20px;
+$border-radius-rounded: 999px;
+
+// Tables
+$table-row-height: 60px;

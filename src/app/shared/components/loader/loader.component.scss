@@ -1,0 +1,18 @@
+@import "style-variables";
+
+.loader-container {
+  &.inline {
+    display: inline;
+  }
+  &.large {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+  }
+}
+
+.loader {
+  max-height: $loader-size;
+}

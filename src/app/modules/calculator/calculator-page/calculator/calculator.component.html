@@ -1,0 +1,26 @@
+<div class="result">
+  <span>{{ lastResult$ | async }}</span>
+</div>
+<div class="numbers">
+  <button
+    *ngFor="let number of [7, 8, 9, 4, 5, 6, 1, 2, 3, 0]"
+    [attr.aria-label]="number"
+    (click)="setNumber(number)"
+  >
+    {{ number }}
+  </button>
+</div>
+<div class="modifiers">
+  <button
+    *ngFor="let modifier of ModifierEnum | keyvalue"
+    [attr.aria-label]="modifier.key"
+    (click)="setModifier(modifier.value)"
+    [class.active]="(modifier$ | async) === modifier.value"
+    [attr.aria-selected]="(modifier$ | async) === modifier.value"
+  >
+    {{ modifier.value }}
+  </button>
+</div>
+<div class="settings">
+  <button aria-label="Clear" (click)="clear()">CE</button>
+</div>

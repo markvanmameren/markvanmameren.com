@@ -1,0 +1,9 @@
+<pf-image-grid-container>
+  <pf-image-grid-cell
+    *ngFor="let project of projects"
+    [title]="project.title"
+    [image]="project.image"
+    [urlInternal]="project.urlInternal"
+    [urlExternal]="project.urlExternal"
+  ></pf-image-grid-cell>
+</pf-image-grid-container>

@@ -1,0 +1,18 @@
+<pf-container *ngIf="loggedInAdmin$ | async as loggedInAdmin">
+  <pf-cell>
+    <pf-table
+      [rows]="[
+        { title: 'First name', value: loggedInAdmin.firstName },
+        { title: 'Last name', value: loggedInAdmin.lastName },
+        { title: 'Email', value: loggedInAdmin.email },
+        { title: 'Password', value: loggedInAdmin.password }
+      ]"
+    ></pf-table>
+  </pf-cell>
+  <pf-cell
+    [image]="{
+      src: '/assets/images/sogeti-illustrations/Sogeti_Illustrations-58.png',
+      alt: 'Illustration'
+    }"
+  ></pf-cell>
+</pf-container>

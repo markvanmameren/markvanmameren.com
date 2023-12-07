@@ -1,0 +1,26 @@
+@import "style-variables";
+
+a.grid-cell {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: $padding-size-small;
+  background-color: $background-color-medium;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  overflow: hidden;
+  text-align: center;
+  aspect-ratio: 16 / 9;
+  color: $text-color;
+
+  &:hover {
+    color: $text-color-invert;
+    background-color: $text-color-light;
+  }
+
+  h3 {
+    width: auto;
+  }
+}

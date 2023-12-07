@@ -1,0 +1,16 @@
+<pf-back-to-all-users></pf-back-to-all-users>
+<div *ngIf="user$ | async as user; else loader" class="user-details">
+  <pf-user-toolbar
+    *ngIf="user.id"
+    [userID]="user.id"
+    [options]="[
+      ToolbarOptionEnum.VIEW,
+      ToolbarOptionEnum.EDIT,
+      ToolbarOptionEnum.DELETE
+    ]"
+  ></pf-user-toolbar>
+  <router-outlet name="action"></router-outlet>
+</div>
+<ng-template #loader>
+  <pf-loader [isLarge]="true"></pf-loader>
+</ng-template>

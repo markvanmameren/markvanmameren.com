@@ -1,0 +1,16 @@
+<a
+  *ngIf="!(loggedInAdmin$ | async)"
+  (click)="login()"
+  class="pf-buttonlink secondary"
+  aria-label="Log-in"
+>
+  <fa-icon [icon]="faUser" size="xs"></fa-icon>Log-in
+</a>
+<a
+  *ngIf="loggedInAdmin$ | async"
+  (click)="logout()"
+  class="pf-buttonlink secondary"
+  aria-label="Log-out"
+>
+  <fa-icon [icon]="faRightFromBracket" size="xs"></fa-icon>Log-out
+</a>

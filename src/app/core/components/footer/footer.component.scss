@@ -1,0 +1,20 @@
+@import "style-variables";
+
+footer {
+  background-color: $accent-color;
+  color: $text-color-invert;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .copyright {
+    background-color: $background-color-dark;
+    padding: $padding-size-medium;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: $header-footer-height;
+  }
+}

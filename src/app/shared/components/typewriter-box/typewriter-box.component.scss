@@ -1,0 +1,26 @@
+@import "style-variables";
+
+.typewriter-box {
+  font-size: $font-size-h1;
+  font-family: $font-family-title;
+
+  .text {
+    font-weight: $font-weight-title;
+  }
+
+  .cursor {
+    font-weight: $font-weight-body;
+
+    &.doneWriting {
+      animation: blink 1.5s steps(2) infinite;
+    }
+  }
+}
+@keyframes blink {
+  0% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: visible;
+  }
+}

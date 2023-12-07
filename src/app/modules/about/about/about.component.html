@@ -1,0 +1,93 @@
+<section id="splashscreen">
+  <pf-typewriter-box [text]="'Nice to meet you. '"></pf-typewriter-box>
+  <div class="intro-card">
+    <div
+      class="image"
+      aria-label="Mark van Mameren"
+      role="img"
+      [style.backgroundImage]="'url(/assets/images/mark.jpg)'"
+    ></div>
+    <div class="info">
+      <div class="occupation">
+        <h1>Mark van Mameren</h1>
+        <h2>
+          <span class="job-title">Front-end developer @ </span>
+          <a class="company" href="https://www.divotion.com">Divotion</a>
+        </h2>
+      </div>
+      <div class="logos">
+        <a href="https://www.linkedin.com/in/markvanmameren" rel="_blank">
+          <fa-icon size="1x" [icon]="faLinkedin"></fa-icon>
+        </a>
+        <a href="https://github.com/markvanmameren" rel="_blank">
+          <fa-icon size="1x" [icon]="faGithub"></fa-icon>
+        </a>
+        <a href="mailto:mark.van.mameren@divotion.com">
+          <fa-icon size="1x" [icon]="faEnvelope"></fa-icon>
+        </a>
+        <a href="tel:+31620739578">
+          <fa-icon size="1x" [icon]="faPhone"></fa-icon>
+        </a>
+      </div>
+    </div>
+  </div>
+  <a class="continue-reading" (click)="scrollTo(introduction)">
+    <fa-icon
+      [icon]="faChevronDown"
+      size="1x"
+      class="icon-right fa-flip-vertical"
+    ></fa-icon>
+    Continue Reading</a
+  >
+</section>
+<section id="introduction" #introduction>
+  <h2>About me</h2>
+  <p>
+    My name is Mark, I'm 33 years old at the time of writing, and I live in the
+    beautiful city centre of Utrecht with my girlfriend and cat. I would
+    describe myself as a real teamplayer. I'm very motivated, entrepreneurial
+    and precise. I have passion for front-end development, user experience and
+    working hard on beautiful products!
+  </p>
+</section>
+<section id="education">
+  <h2>Education</h2>
+  <p>
+    I graduated in Public Administration & Organisation at the VU Amsterdam and
+    in Music & Technology at the HKU Utrecht. In 2016, I started my own company,
+    together with 5 other co-founders. My main focus within that company was
+    web-development, which I did for almost 8 years. This is also where I found
+    my passion for front-end development, creating user-friendly and responsive
+    websites. In addition to that creation process, I was also spending a lot of
+    time on SEO and SEA optimalisations. In my spare time, I was working on
+    mobile app development. I created multiple iOS apps that were published in
+    the App Store. Those mainly helped people with music theory and musical
+    hearing. I created those in Objective C using XCode and sold them using the
+    Apple Developer Network.
+  </p>
+</section>
+<section id="working-experience">
+  <h2>Working experience</h2>
+  <p>
+    My fulltime IT career started at Sogeti. There, I first worked on an iOS and
+    Android app for new employees in React Native and Typescript. After that, I
+    worked full-time as an Angular Developer at the Dutch Chamber of Commerce.
+    For the final product, a website that is designed to couple big corporates
+    with small entrepreneurs, I built multiple components with their
+    corresponding unit tests and SCSS styling. My current assignment is at UWV,
+    where I work as an on a very innovative project, which has as its goal to
+    merge over 200 UWV websites into a single Angular application. My job
+    description is mainly building new components, unit testing and add NgRX
+    functionality.
+  </p>
+</section>
+<section id="skills">
+  <h2>Skills</h2>
+  <pf-word-grid-container>
+    <pf-word-grid-cell
+      *ngFor="let skill of skills"
+      [icon]="skill.icon"
+      [title]="skill.title"
+    ></pf-word-grid-cell>
+  </pf-word-grid-container>
+</section>

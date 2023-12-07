@@ -1,0 +1,16 @@
+{
+  "admins": [
+    {
+      "firstName": "Admin",
+      "lastName": "Istrator",
+      "email": "administrator@administrator.com",
+      "password": "administrator"
+    },
+    {
+      "firstName": "Mod",
+      "lastName": "Erator",
+      "email": "moderator@moderator.com",
+      "password": "moderator"
+    }
+  ]
+}

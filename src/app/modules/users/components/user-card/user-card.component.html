@@ -1,0 +1,16 @@
+<a
+  *ngIf="user"
+  class="user-card"
+  [routerLink]="['/users', this.user.id]"
+  aria-label="View user"
+>
+  <div
+    *ngIf="user.avatar"
+    class="picture"
+    role="img"
+    [style.background-image]="'url(' + user.avatar + ')'"
+  ></div>
+  <p *ngIf="user.firstName || user.lastName" class="title">
+    {{ user.firstName }} {{ user.lastName }}
+  </p>
+</a>

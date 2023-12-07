@@ -1,0 +1,244 @@
+// THIS FILE ONLY CONTAINS GLOBAL STYLING THAT APPLIES TO ALL PAGES
+
+// Fonts
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap");
+
+// Variables
+@import "style-variables";
+
+// CSS reset
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  box-sizing: border-box;
+  -webkit-border-horizontal-spacing: 0;
+  -webkit-border-vertical-spacing: 0;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+:root {
+  font-size: $font-rem-base-value;
+}
+
+body {
+  font-family: $font-family-body;
+  font-size: $font-size-body;
+  font-weight: $font-weight-body;
+  background-color: $background-color-dark;
+  color: $text-color;
+  line-height: calc(1.8 *#{$font-size-body});
+}
+
+main {
+  background-color: $background-color-light;
+}
+
+article.page {
+  min-height: calc(100vh - 5 *#{$header-footer-height}); /* mobile first */
+  max-width: $max-page-width;
+  margin: $header-footer-height auto 0;
+  padding: $padding-size-medium;
+}
+
+h1,
+h2,
+h3 {
+  font-family: $font-family-title;
+  font-weight: $font-weight-title;
+  padding: $padding-size-medium;
+}
+
+h1 {
+  font-size: $font-size-h1;
+  line-height: $font-size-h1;
+  text-transform: uppercase;
+  background-color: $accent-color;
+  color: $text-color-invert;
+  margin-bottom: $padding-size-medium;
+  width: 100%;
+}
+
+h2 {
+  font-size: $font-size-h2;
+  line-height: $font-size-h2;
+  color: $accent-color;
+  background-color: $text-color-invert;
+  width: 100%;
+}
+
+h3 {
+  font-size: $font-size-h3;
+  line-height: $font-size-h3;
+  width: 100%;
+}
+
+p {
+  padding: $padding-size-medium;
+}
+
+a {
+  color: $accent-color;
+  font-weight: $font-weight-title;
+  transition: all $transition-duration linear;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+a.pf-buttonlink {
+  padding: $padding-size-small $padding-size-medium;
+  text-transform: uppercase;
+
+  font-weight: $font-weight-title;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: $padding-size-small;
+  justify-content: space-between;
+  align-items: center;
+  border-width: $border-width-small;
+  border-style: solid;
+  justify-content: center;
+
+  &.activeLink,
+  &:hover {
+    background-color: $accent-color;
+    color: $text-color-invert;
+  }
+
+  &.warning {
+    border-color: $error-color;
+    color: $error-color;
+
+    &:hover {
+      background-color: $error-color;
+      color: $text-color-invert;
+    }
+  }
+
+  &.primary {
+    border-color: $accent-color;
+    background-color: $accent-color;
+    color: $text-color-invert;
+
+    &:hover {
+      background-color: transparent;
+      color: $accent-color;
+    }
+  }
+
+  &.secondary {
+    border-color: $text-color-light;
+    background-color: transparent;
+    color: $text-color-invert;
+
+    &:hover {
+      background-color: $background-color-medium;
+      color: $text-color;
+    }
+  }
+}
+
+textarea,
+input {
+  font-family: $font-family-body;
+  font-size: $font-size-body;
+  transition: all $transition-duration linear;
+}
+
+textarea,
+input[type="text"],
+input[type="email"],
+input[type="search"],
+input[type="password"] {
+  padding: $padding-size-small;
+  color: $text-color;
+  border: $border-width-small solid $accent-color;
+
+  &.error,
+  &.ng-invalid.ng-touched {
+    border-color: $error-color;
+  }
+}
+
+input[type="button"],
+input[type="submit"] {
+  padding: $padding-size-small $padding-size-medium;
+  color: $text-color-invert;
+  background-color: $accent-color;
+  border: $border-width-small solid $accent-color;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: $font-weight-title;
+
+  &.add_loader {
+    background-image: url("assets/images/spinner.gif");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: left center;
+    background-origin: content-box;
+  }
+
+  &:hover {
+    background-color: transparent;
+    color: $accent-color;
+  }
+
+  &:disabled {
+    background-color: $background-color-medium;
+    border-color: transparent;
+    color: $text-color-invert;
+    cursor: not-allowed;
+  }
+
+  &:not(:first-of-type) {
+    margin-left: $padding-size-medium;
+  }
+}
+
+input[type="submit"] {
+  margin: $padding-size-small 0 0;
+}
+
+form {
+  padding: $padding-size-medium-responsive;
+  background-color: $text-color-invert;
+  width: 100%;
+  max-width: $mobile-breakpoint;
+  margin: 0 auto;
+
+  input,
+  label {
+    width: 100%;
+  }
+
+  .formcontrol {
+    display: flex;
+    flex-direction: column;
+
+    &:not(:last-of-type) {
+      padding-bottom: $padding-size-medium;
+    }
+  }
+}
+
+.icon-left {
+  margin-right: $padding-size-small;
+}
+
+.icon-right {
+  margin-left: $padding-size-small;
+}
+
+/* Desktop */
+@media (min-width: $mobile-breakpoint) {
+  article.page {
+    min-height: calc(100vh - 3 *#{$header-footer-height});
+  }
+}

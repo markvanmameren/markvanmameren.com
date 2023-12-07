@@ -1,0 +1,19 @@
+<ng-container *ngIf="urlInternal">
+  <a
+    [routerLink]="[urlInternal]"
+    class="grid-cell"
+    [style.background-image]="'url(' + image.src + ')'"
+  >
+    <h3>{{ title }}</h3>
+  </a>
+</ng-container>
+
+<ng-template *ngIf="urlExternal">
+  <a
+    [href]="urlExternal"
+    class="grid-cell"
+    [style.background-image]="'url(' + image.src + ')'"
+  >
+    <h3>{{ title }}</h3>
+  </a>
+</ng-template>

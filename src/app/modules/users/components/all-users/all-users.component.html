@@ -1,0 +1,13 @@
+<pf-all-users-header
+  [searchTerm$]="searchTerm$"
+  [users$]="users$"
+></pf-all-users-header>
+<pf-user-card-grid *ngIf="users$ | async; else loader">
+  <pf-user-card
+    *ngFor="let user of users$ | async"
+    [user]="user"
+  ></pf-user-card>
+</pf-user-card-grid>
+<ng-template #loader>
+  <pf-loader [isLarge]="true"></pf-loader>
+</ng-template>

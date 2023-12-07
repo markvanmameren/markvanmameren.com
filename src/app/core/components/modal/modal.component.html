@@ -1,0 +1,24 @@
+<div
+  *ngIf="(modalContent$ | async) || (isLoading$ | async)"
+  class="modal-background"
+>
+  <div
+    *ngIf="modalContent$ | async as modalContent"
+    class="modal-popup"
+    role="alertdialog"
+  >
+    <h3>{{ modalContent.titleText }}</h3>
+    <p>{{ modalContent.bodyText }}</p>
+    <div class="toolbar" role="toolbar">
+      <input
+        *ngFor="let button of modalContent.buttons"
+        type="button"
+        [attr.aria-label]="button.text"
+        [value]="button.text"
+        [class.warning]="button.warning"
+        (click)="button.callback?.()"
+      />
+    </div>
+  </div>
+  <pf-loader *ngIf="isLoading$ | async" [isLarge]="true"></pf-loader>
+</div>

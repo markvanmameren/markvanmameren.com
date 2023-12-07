@@ -1,0 +1,14 @@
+@import "style-variables";
+
+:host {
+  display: grid;
+  grid-template-columns: 1fr; /* mobile first */
+}
+
+/* Desktop */
+@media (min-width: $mobile-breakpoint) {
+  :host {
+    max-width: $mobile-breakpoint;
+    grid-template-columns: repeat(auto-fit, minmax($min-card-width, 1fr));
+  }
+}

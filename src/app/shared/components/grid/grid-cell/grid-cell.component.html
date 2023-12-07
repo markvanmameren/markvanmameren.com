@@ -1,0 +1,10 @@
+<div
+  *ngIf="image; else noImage"
+  class="image"
+  [attr.aria-label]="image.alt"
+  role="img"
+  [style.backgroundImage]="'url(' + image.src + ')'"
+></div>
+<ng-template #noImage>
+  <ng-content></ng-content>
+</ng-template>

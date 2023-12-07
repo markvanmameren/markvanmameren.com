@@ -1,0 +1,8 @@
+@import "style-variables";
+
+:host {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: $padding-size-medium;
+  padding-top: $padding-size-medium;
+}

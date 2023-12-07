@@ -1,0 +1,7 @@
+@import "style-variables";
+
+:host {
+  display: flex;
+  flex-direction: column;
+  padding: $padding-size-medium 0;
+}

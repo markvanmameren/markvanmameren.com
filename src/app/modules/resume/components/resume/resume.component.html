@@ -1,0 +1,29 @@
+<section id="work-experience">
+  <h2>Work experience</h2>
+  <pf-resume-table-container>
+    <pf-resume-table-row
+      *ngFor="let employer of employers"
+      [content]="employer"
+    ></pf-resume-table-row>
+  </pf-resume-table-container>
+</section>
+
+<section id="education">
+  <h2>Education</h2>
+  <pf-resume-table-container>
+    <pf-resume-table-row
+      *ngFor="let school of schools"
+      [content]="school"
+    ></pf-resume-table-row>
+  </pf-resume-table-container>
+</section>
+
+<section id="certificates">
+  <h2>Certificates</h2>
+  <pf-resume-table-container>
+    <pf-resume-table-row
+      *ngFor="let certificate of certificates"
+      [content]="certificate"
+    ></pf-resume-table-row>
+  </pf-resume-table-container>
+</section>

@@ -1,0 +1,14 @@
+@import "style-variables";
+
+:host {
+  display: grid;
+  grid-template-columns: 1fr; /* mobile first */
+  gap: $padding-size-medium;
+}
+
+/* Desktop */
+@media (min-width: $mobile-breakpoint) {
+  :host {
+    grid-template-columns: 2fr 1fr;
+  }
+}

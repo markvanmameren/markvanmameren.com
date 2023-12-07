@@ -1,0 +1,16 @@
+<pf-container *ngIf="user; else loader">
+  <pf-cell>
+    <pf-registerform
+      [initialFormValue]="initialFormValue"
+      (onSubmitEmitter)="onSubmit($event)"
+    ></pf-registerform>
+  </pf-cell>
+  <pf-cell
+    *ngIf="user.avatar"
+    [image]="{ src: user.avatar, alt: 'Profile picture' }"
+  >
+  </pf-cell>
+</pf-container>
+<ng-template #loader>
+  <pf-loader [isLarge]="true"></pf-loader>
+</ng-template>

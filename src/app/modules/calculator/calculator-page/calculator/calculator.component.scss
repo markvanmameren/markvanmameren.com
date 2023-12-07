@@ -1,0 +1,91 @@
+@import "style-variables";
+
+:host {
+  border: $border-width-xl solid $background-color-dark;
+  overflow: hidden;
+  border-radius: $border-radius-default;
+  width: $small-breakpoint;
+  display: grid;
+  grid-template-areas:
+    "result result result result"
+    "numbers numbers numbers modifiers"
+    "numbers numbers numbers modifiers"
+    "numbers numbers numbers modifiers"
+    "settings settings settings settings";
+
+  button {
+    height: $calculator-button-height;
+    transition: all $transition-duration linear;
+    text-transform: uppercase;
+    flex-grow: 1;
+    color: $text-color-invert;
+    cursor: pointer;
+    font-family: $font-family-body;
+    font-size: $font-size-h3;
+  }
+
+  & > div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    &.result {
+      height: $calculator-button-height;
+      grid-area: result;
+      transition: all $transition-duration linear;
+      text-transform: uppercase;
+      background-color: $background-color-medium;
+      justify-content: flex-end;
+      align-items: center;
+      padding: $padding-size-medium;
+
+      span {
+        color: $accent-color;
+        font-family: $font-family-body;
+        font-size: $font-size-h3;
+        font-weight: $font-weight-bold;
+        background-color: transparent;
+      }
+    }
+
+    &.numbers {
+      grid-area: numbers;
+
+      button {
+        width: 33%;
+        background-color: $text-color-light;
+
+        &:hover {
+          background-color: $accent-color;
+        }
+      }
+    }
+    &.modifiers {
+      grid-area: modifiers;
+      background-color: yellow;
+
+      button {
+        width: 100%;
+        background-color: $background-color-dark;
+
+        &:hover,
+        &.active {
+          background-color: $accent-color;
+        }
+      }
+    }
+    &.settings {
+      grid-area: settings;
+      background-color: blue;
+
+      button {
+        width: 33%;
+        background-color: $accent-color;
+
+        &:hover {
+          background-color: $background-color-dark;
+        }
+      }
+    }
+  }
+}

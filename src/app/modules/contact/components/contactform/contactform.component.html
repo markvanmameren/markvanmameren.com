@@ -1,0 +1,126 @@
+<form
+  role="form"
+  title="Contactform"
+  [formGroup]="form"
+  autocomplete="on"
+  (ngSubmit)="onSubmit()"
+>
+  <div class="formcontrol">
+    <span class="introduction"
+      >For questions and inquiries, get in touch with me here.<br />
+      I'll get back to you as soon as possible!</span
+    >
+  </div>
+  <div class="formcontrol">
+    <label for="firstName" id="first-name-label" aria-label="First Name"
+      >First name:</label
+    >
+    <input
+      formControlName="firstName"
+      id="firstName"
+      aria-labelledby="first-name-label"
+      [class.error]="(firstName.dirty || firstName.touched) && firstName.errors"
+      [attr.aria-invalid]="!!firstName.errors"
+      type="text"
+      name="firstName"
+      placeholder=""
+    />
+    <ng-container *ngIf="firstName.dirty || firstName.touched">
+      <pf-error-message
+        *ngIf="firstName.errors?.['required']"
+        id="error-first-name-empty"
+        message="First name is required."
+      ></pf-error-message>
+      <pf-error-message
+        *ngIf="firstName.errors?.['maxlength']"
+        id="error-first-name-maxlength"
+        message="First name contains too many characters."
+      ></pf-error-message>
+    </ng-container>
+  </div>
+  <div class="formcontrol">
+    <label for="lastName" id="last-name-label" aria-label="Last Name"
+      >Last name:</label
+    >
+    <input
+      formControlName="lastName"
+      id="lastName"
+      aria-labelledby="last-name-label"
+      [class.error]="(lastName.dirty || lastName.touched) && lastName.errors"
+      [attr.aria-invalid]="!!lastName.errors"
+      type="text"
+      name="lastName"
+      placeholder=""
+    />
+    <ng-container *ngIf="lastName.dirty || lastName.touched">
+      <pf-error-message
+        *ngIf="lastName.errors?.['required']"
+        message="Last name is required."
+      ></pf-error-message>
+      <pf-error-message
+        *ngIf="lastName.errors?.['maxlength']"
+        message="Last name contains too many characters."
+      ></pf-error-message>
+    </ng-container>
+  </div>
+  <div class="formcontrol">
+    <label for="email" id="email-label" aria-label="E-mail">E-mail:</label>
+    <input
+      formControlName="email"
+      id="email"
+      aria-labelledby="email-label"
+      [class.error]="(email.dirty || email.touched) && email.errors"
+      [attr.aria-invalid]="!!email.errors"
+      type="email"
+      name="email"
+      placeholder=""
+    />
+    <ng-container *ngIf="email.dirty || email.touched">
+      <pf-error-message
+        *ngIf="email.errors?.['required']"
+        message="E-mail is required."
+      ></pf-error-message>
+      <pf-error-message
+        *ngIf="email.errors?.['email']"
+        message="E-mail is not valid."
+      ></pf-error-message>
+      <pf-error-message
+        *ngIf="email.errors?.['maxlength']"
+        message="E-mail contains too many characters."
+      ></pf-error-message>
+    </ng-container>
+  </div>
+  <div class="formcontrol">
+    <label for="message" id="message-label" aria-label="Message"
+      >Message:</label
+    >
+    <textarea
+      formControlName="message"
+      id="message"
+      aria-labelledby="message-label"
+      [class.error]="(message.dirty || message.touched) && message.errors"
+      [attr.aria-invalid]="!!message.errors"
+      name="message"
+      rows="6"
+      placeholder=""
+    ></textarea>
+    <ng-container *ngIf="message.dirty || message.touched">
+      <pf-error-message
+        *ngIf="message.errors?.['required']"
+        message="Message is required."
+      ></pf-error-message>
+      <pf-error-message
+        *ngIf="message.errors?.['maxlength']"
+        message="Message contains too many characters."
+      ></pf-error-message>
+    </ng-container>
+  </div>
+  <div class="formcontrol">
+    <input
+      [disabled]="form.invalid"
+      type="submit"
+      aria-label="Submit"
+      value="Submit"
+    />
+  </div>
+</form>

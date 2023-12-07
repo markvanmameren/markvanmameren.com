@@ -1,0 +1,194 @@
+<form
+  role="form"
+  title="Contactform"
+  [formGroup]="form"
+  autocomplete="on"
+  (ngSubmit)="onSubmit()"
+>
+  <div class="formcontrol">
+    <label for="firstName" id="first-name-label" aria-label="First Name"
+      >First name:</label
+    >
+    <input
+      formControlName="firstName"
+      type="text"
+      id="firstName"
+      name="firstName"
+      aria-labelledby="first-name-label"
+      [attr.aria-invalid]="!!firstName.errors"
+      placeholder=""
+      [class.error]="(firstName.dirty || firstName.touched) && firstName.errors"
+    />
+    <ng-container *ngIf="firstName.dirty || firstName.touched">
+      <pf-error-message
+        *ngIf="firstName.errors?.['required']"
+        id="error-first-name-empty"
+        message="First name is required"
+      ></pf-error-message>
+      <pf-error-message
+        *ngIf="firstName.errors?.['maxlength']"
+        id="error-first-name-maxlength"
+        message="First name contains too many characters."
+      ></pf-error-message>
+    </ng-container>
+  </div>
+  <div class="formcontrol">
+    <label for="lastName" id="last-name-label" aria-label="Last Name"
+      >Last name:</label
+    >
+    <input
+      formControlName="lastName"
+      type="text"
+      id="lastName"
+      name="lastName"
+      aria-labelledby="last-name-label"
+      [attr.aria-invalid]="!!lastName.errors"
+      placeholder=""
+      [class.error]="(lastName.dirty || lastName.touched) && lastName.errors"
+    />
+    <ng-container *ngIf="lastName.dirty || lastName.touched">
+      <pf-error-message
+        *ngIf="lastName.errors?.['required']"
+        id="error-last-name-empty"
+        message="Last name is required"
+      ></pf-error-message>
+      <pf-error-message
+        *ngIf="lastName.errors?.['maxlength']"
+        message="Last name contains too many characters."
+      ></pf-error-message>
+    </ng-container>
+  </div>
+  <div class="formcontrol">
+    <label for="email" id="email-label" aria-label="E-mail">E-mail:</label>
+    <input
+      formControlName="email"
+      type="email"
+      id="email"
+      name="email"
+      aria-labelledby="email-label"
+      [attr.aria-invalid]="!!email.errors"
+      placeholder=""
+      [class.error]="(email.dirty || email.touched) && email.errors"
+    />
+    <ng-container *ngIf="email.dirty || email.touched">
+      <pf-error-message
+        *ngIf="email.errors?.['required']"
+        id="error-email-empty"
+        message="Email is required"
+      ></pf-error-message>
+      <pf-error-message
+        *ngIf="email.errors?.['email']"
+        id="error-email-pattern"
+        message="Please enter email address as ‘username@domainname.domain’"
+      ></pf-error-message>
+      <pf-error-message
+        *ngIf="email.errors?.['maxlength']"
+        id="error-email-maxlength"
+        message="E-mail contains too many characters."
+      ></pf-error-message>
+    </ng-container>
+  </div>
+  <div class="formcontrol">
+    <label for="password" id="password-label" aria-label="Password"
+      >Password:</label
+    >
+    <input
+      formControlName="password"
+      [type]="isPasswordVisible ? 'text' : 'password'"
+      id="password"
+      name="password"
+      aria-labelledby="password-label"
+      [attr.aria-invalid]="!!password.errors"
+      placeholder=""
+      [class.error]="(password.dirty || password.touched) && (password.errors || form.errors?.['controlContains'])"
+    />
+    <ng-container *ngIf="password.dirty || password.touched">
+      <pf-error-message
+        *ngIf="password.errors?.['required']"
+        id="error-password-empty"
+        message="Password is required"
+      ></pf-error-message>
+      <pf-error-message
+        *ngIf="password.errors?.['minlength']"
+        id="error-password-minlength"
+        message="Password should have a minimum of 8 characters"
+      ></pf-error-message>
+      <pf-error-message
+        *ngIf="password.errors?.['maxlength']"
+        id="error-password-maxlength"
+        message="Password contains too many characters."
+      ></pf-error-message>
+      <pf-error-message
+        *ngIf="form.errors?.['controlContains']"
+        id="error-password-contains-name"
+        message="Password should not contain first name or last name"
+      ></pf-error-message>
+    </ng-container>
+  </div>
+  <div class="formcontrol">
+    <label
+      for="passwordConfirm"
+      id="password-confirm-label"
+      aria-label="Confirm password"
+      >Confirm password:</label
+    >
+    <input
+      formControlName="passwordConfirm"
+      [type]="
+        isPasswordVisible
+          ? PasswordFieldVisible.VISIBLE
+          : PasswordFieldVisible.INVISIBLE
+      "
+      id="passwordConfirm"
+      name="passwordConfirm"
+      aria-labelledby="password-confirm-label"
+      [attr.aria-invalid]="!!passwordConfirm.errors"
+      placeholder=""
+      [class.error]="
+        (passwordConfirm.dirty || passwordConfirm.touched) &&
+        (passwordConfirm.errors || form.errors?.['controlContains' || form.errors?.['matchError']])
+      "
+    />
+    <ng-container *ngIf="passwordConfirm.dirty || passwordConfirm.touched">
+      <pf-error-message
+        *ngIf="passwordConfirm.errors?.['required']"
+        id="error-password-confirm-empty"
+        message="Password is required"
+      ></pf-error-message>
+      <pf-error-message
+        *ngIf="passwordConfirm.errors?.['maxlength']"
+        id="error-passwordConfirm-maxlength"
+        message="Confirm password contains too many characters."
+      ></pf-error-message>
+      <pf-error-message
+        *ngIf="form.errors?.['matchError']"
+        id="error-password-confirm-match"
+        message="Passwords should match"
+      ></pf-error-message>
+    </ng-container>
+  </div>
+  <div class="formcontrol">
+    <a
+      class="password-eye"
+      (click)="togglePasswordVisible()"
+      [attr.aria-label]="isPasswordVisible ? 'Hide password' : 'Show password'"
+    >
+      <fa-icon [icon]="isPasswordVisible ? faEyeSlash : faEye"></fa-icon>
+      {{ isPasswordVisible ? "Hide password" : "Show password" }}
+    </a>
+  </div>
+  <div class="formcontrol">
+    <input
+      id="submit-registration-btn"
+      [disabled]="form.invalid"
+      type="submit"
+      aria-label="Submit"
+      value="Submit"
+    />
+    <pf-error-message
+      *ngIf="isSubmitError"
+      id="form-invalid"
+      message="Form is invalid"
+    ></pf-error-message>
+  </div>
+</form>

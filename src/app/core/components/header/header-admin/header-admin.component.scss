@@ -1,0 +1,7 @@
+@import "style-variables";
+
+:host {
+  padding-top: calc(
+    #{$padding-size-small} + #{$border-width-thick} - #{$border-width-small}
+  );
+}

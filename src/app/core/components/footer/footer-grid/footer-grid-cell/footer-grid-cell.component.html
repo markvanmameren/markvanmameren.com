@@ -1,0 +1,22 @@
+<ng-container *ngIf="urlText; else noUrlText">
+  <ng-container *ngIf="urlInternal">
+    <a [routerLink]="[urlInternal]" class="grid-cell">
+      <fa-icon [icon]="icon"></fa-icon>
+      <span>{{ urlText }}</span>
+    </a>
+  </ng-container>
+
+  <ng-container *ngIf="urlExternal">
+    <a [href]="urlExternal" class="grid-cell">
+      <fa-icon [icon]="icon"></fa-icon>
+      <span>{{ urlText }}</span>
+    </a>
+  </ng-container>
+</ng-container>
+
+<ng-template #noUrlText>
+  <div class="grid-cell">
+    <fa-icon [icon]="icon"></fa-icon>
+    <span>{{ urlText }}</span>
+  </div>
+</ng-template>

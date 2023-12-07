@@ -1,0 +1,12 @@
+@import "style-variables";
+
+:host {
+  width: 100%;
+
+  .introduction {
+    color: $text-color-invert;
+    padding: $padding-size-medium;
+    background-color: $accent-color;
+    margin-bottom: $padding-size-medium;
+  }
+}

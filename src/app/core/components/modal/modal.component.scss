@@ -1,0 +1,62 @@
+@import "style-variables";
+
+.modal-background {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: $background-color-modal;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .modal-popup {
+    background-color: $background-color-light;
+    padding: $padding-size-medium;
+    text-align: center;
+
+    .toolbar {
+      padding-top: $padding-size-medium;
+      display: flex;
+      flex-wrap: wrap;
+      gap: $padding-size-small; /* mobile first */
+      flex-direction: column; /* mobile first */
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+
+      input[type="button"] {
+        margin: 0;
+        width: 100%; /* mobile first */
+
+        &.warning {
+          background-color: $error-color;
+          color: $text-color-invert;
+          border-color: $error-color;
+
+          &:hover {
+            background-color: transparent;
+            color: $error-color;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Desktop */
+@media (min-width: $mobile-breakpoint) {
+  .modal-background {
+    .modal-popup {
+      .toolbar {
+        flex-direction: row;
+        gap: $padding-size-medium;
+
+        input[type="button"] {
+          width: auto;
+        }
+      }
+    }
+  }
+}

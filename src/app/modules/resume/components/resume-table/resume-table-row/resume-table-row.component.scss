@@ -1,0 +1,60 @@
+@import "style-variables";
+
+:host {
+  display: flex;
+  flex-flow: column nowrap;
+  padding: $padding-size-medium;
+  gap: $padding-size-medium;
+
+  &:nth-of-type(2n) {
+    background-color: $background-color-medium;
+  }
+
+  .resume-column {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    img {
+      width: $resume-row-icon-size;
+    }
+  }
+
+  .basic {
+    display: grid;
+    min-height: $table-row-height;
+    gap: $padding-size-medium;
+    grid-template-columns: auto 3fr auto; /* mobile first */
+  }
+
+  .extra {
+    display: flex;
+    flex-flow: column nowrap;
+
+    .date-full {
+      display: grid;
+      grid-template-columns: 140px 140px;
+      gap: $padding-size-medium;
+
+      .date-content {
+        text-align: right;
+      }
+    }
+
+    .description {
+      padding-bottom: $padding-size-medium;
+    }
+  }
+}
+
+/* Desktop */
+@media (min-width: $mobile-breakpoint) {
+  :host {
+    .basic {
+      grid-template-columns: auto 1fr 1fr 1fr auto;
+    }
+    .title {
+      font-weight: $font-weight-bold;
+    }
+  }
+}

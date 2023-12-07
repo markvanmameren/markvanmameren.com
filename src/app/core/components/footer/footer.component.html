@@ -1,0 +1,28 @@
+<footer>
+  <pf-footer-grid-container>
+    <pf-footer-grid-cell
+      [urlText]="'Send a message'"
+      [urlInternal]="'/contact'"
+      [icon]="faCommentDots"
+    ></pf-footer-grid-cell>
+    <pf-footer-grid-cell
+      [urlText]="'Visit the office'"
+      [urlExternal]="'https://maps.app.goo.gl/pYHZ74vzH61skBaS7'"
+      [icon]="faMap"
+    ></pf-footer-grid-cell>
+    <pf-footer-grid-cell
+      [urlText]="'Email me'"
+      [urlExternal]="'mailto:mark.van.mameren@divotion.com'"
+      [icon]="faEnvelope"
+    ></pf-footer-grid-cell>
+  </pf-footer-grid-container>
+  <p class="copyright">
+    Mark van Mameren
+    <fa-icon
+      [icon]="faCopyright"
+      class="icon-left icon-right"
+      size="xs"
+    ></fa-icon>
+    2022
+  </p>
+</footer>

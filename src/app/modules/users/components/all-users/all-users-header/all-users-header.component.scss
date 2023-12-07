@@ -1,0 +1,26 @@
+@import "style-variables";
+:host {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: $padding-size-medium;
+  padding-bottom: $padding-size-medium;
+}
+
+/* Mobile */
+@media (max-width: $mobile-breakpoint) {
+  :host {
+    & > * {
+      width: 100%; /* mobile first */
+    }
+  }
+}
+
+/* Desktop */
+@media (min-width: $mobile-breakpoint) {
+  input[type="search"] {
+    width: $small-breakpoint;
+  }
+}

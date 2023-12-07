@@ -1,0 +1,9 @@
+<pf-header></pf-header>
+<main>
+  <article class="page">
+    <h1 *ngIf="routeName$ | async; let routeName">{{ routeName }}</h1>
+    <router-outlet></router-outlet>
+  </article>
+</main>
+<pf-footer></pf-footer>
+<pf-modal></pf-modal>

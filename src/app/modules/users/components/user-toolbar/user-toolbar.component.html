@@ -1,0 +1,29 @@
+<nav *ngIf="userID">
+  <a
+    *ngIf="options.includes(ToolbarOptionEnum.VIEW)"
+    class="pf-buttonlink"
+    routerLinkActive="activeLink"
+    [routerLink]="[{ outlets: { action: ['view'] } }]"
+    aria-label="View user"
+  >
+    <fa-icon size="xs" [icon]="faEye"></fa-icon>View
+  </a>
+  <a
+    *ngIf="options.includes(ToolbarOptionEnum.EDIT)"
+    class="pf-buttonlink"
+    routerLinkActive="activeLink"
+    [routerLink]="[{ outlets: { action: ['edit'] } }]"
+    aria-label="Edit user"
+  >
+    <fa-icon size="xs" [icon]="faEdit"></fa-icon>Edit
+  </a>
+  <a
+    *ngIf="options.includes(ToolbarOptionEnum.DELETE)"
+    class="pf-buttonlink warning"
+    routerLinkActive="activeLink"
+    (click)="showDeletionPopup()"
+    aria-label="Delete user"
+  >
+    <fa-icon size="xs" [icon]="faTrash"></fa-icon>Delete
+  </a>
+</nav>

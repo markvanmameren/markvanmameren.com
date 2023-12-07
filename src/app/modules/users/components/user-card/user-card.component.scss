@@ -1,0 +1,34 @@
+@import "style-variables";
+
+a.user-card {
+  display: flex;
+  gap: $padding-size-medium;
+  background-color: $background-color-medium;
+  padding: $padding-size-medium;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all $transition-duration linear;
+  color: $text-color;
+
+  &:hover {
+    background-color: $accent-color;
+    color: $text-color-invert;
+  }
+
+  .picture {
+    height: $avatar-size;
+    width: $avatar-size;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    overflow: hidden;
+    border-radius: $border-radius-rounded;
+    color: $text-color-light;
+  }
+
+  .title {
+    padding: 0;
+    font-weight: $font-weight-title;
+  }
+}

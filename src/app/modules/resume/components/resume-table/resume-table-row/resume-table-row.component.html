@@ -1,0 +1,63 @@
+<ng-container *ngIf="content">
+  <div class="basic">
+    <div class="resume-column logo" *ngIf="content.logo">
+      <img [src]="content.logo.src" [alt]="content.logo.src" />
+    </div>
+    <div
+      class="resume-column institution"
+      *ngIf="content.institution && !(isMobile$ | async)"
+    >
+      {{ content.institution }}
+    </div>
+    <div class="resume-column title" *ngIf="content.title">
+      {{ content.title }}
+    </div>
+    <div
+      class="resume-column date-summary"
+      *ngIf="content.startDate && !(isMobile$ | async)"
+    >
+      {{ content.startDate.getFullYear() }} -
+      {{ content.endDate ? content.endDate.getFullYear() : "now" }}
+    </div>
+    <div class="resume-column expander">
+      <a
+        *ngIf="!isOpen && content.description"
+        (click)="isOpen = true"
+        aria-controls="extra"
+        aria-expanded="false"
+      >
+        <fa-icon [icon]="faPlus" size="xs"></fa-icon>
+      </a>
+      <a *ngIf="isOpen" (click)="isOpen = false" aria-expanded="true">
+        <fa-icon [icon]="faMinus" size="xs"></fa-icon>
+      </a>
+    </div>
+  </div>
+  <div class="extra" *ngIf="isOpen" aria-expanded="true">
+    <div class="resume-column description" *ngIf="content.description">
+      {{ content.description }}
+    </div>
+    <ng-container *ngIf="content.startDate">
+      <div class="resume-column date-full">
+        <span class="date-title">Start date:&nbsp;</span>
+        <span class="date-content">{{
+          content.startDate.toLocaleDateString("en-GB", {
+            month: "long",
+            year: "numeric"
+          })
+        }}</span>
+      </div>
+      <div class="resume-column date-full">
+        <span class="date-title">End date:&nbsp;</span>
+        <span class="date-content">{{
+          content.endDate
+            ? content.endDate.toLocaleDateString("en-GB", {
+                month: "long",
+                year: "numeric"
+              })
+            : "Current employer"
+        }}</span>
+      </div>
+    </ng-container>
+  </div>
+</ng-container>

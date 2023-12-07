@@ -1,0 +1,28 @@
+@import "style-variables";
+
+:host {
+  min-height: $header-footer-height;
+
+  a:hover {
+    color: $background-color-dark;
+  }
+
+  /* can be either <a> or <div> */
+  .grid-cell {
+    height: 100%;
+    padding: $padding-size-medium;
+    color: $text-color-invert;
+    display: flex;
+    flex-direction: row; /* mobile first */
+    align-items: center;
+    gap: $padding-size-medium;
+    font-weight: $font-weight-body;
+  }
+}
+
+/* Desktop */
+@media (min-width: $mobile-breakpoint) {
+  .grid-cell {
+    flex-direction: column;
+  }
+}
